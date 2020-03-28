@@ -36,7 +36,7 @@ class HistoryViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! HistoryViewCell
-        cell.layer.cornerRadius = uiConst.cornerRadius
+        cell.layer.cornerRadius = const.cornerRadius
         let item: TranslatedItem = (translatedItems?.sorted(byKeyPath: "date", ascending: false)[indexPath.row])!
         cell.setLabels(item: item)
         return cell

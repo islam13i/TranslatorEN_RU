@@ -1,0 +1,13 @@
+/* 
+  Localizable.strings
+  Translator
+
+  Created by Islam on 3/28/20.
+  Copyright © 2020 Islam. All rights reserved.
+*/
+"lng" = "ru";
+"inputPlaceholder" = "Enter text";
+"btnTxt" = "Show history";
+"imageInput" = "united-kingdom";
+"imageTranslated" = "russia";
+"connection" = "No internet connection";

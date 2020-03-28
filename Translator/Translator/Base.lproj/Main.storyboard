@@ -39,6 +39,9 @@
                                     <constraint firstAttribute="width" secondItem="Jdm-Vt-XKm" secondAttribute="height" multiplier="53:52" id="Z8S-Xx-ya4"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="swapLng"/>
+                                <connections>
+                                    <action selector="changeLang:" destination="5kA-VD-Ueb" eventType="touchUpInside" id="epu-80-hre"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TXp-jR-dLR">
                                 <rect key="frame" x="0.0" y="88" width="375" height="90"/>
@@ -163,6 +166,9 @@
                     <connections>
                         <outlet property="enterTextInput" destination="D1u-Xu-V45" id="MGg-t2-rhT"/>
                         <outlet property="enterTxtView" destination="TXp-jR-dLR" id="vUC-F3-zgf"/>
+                        <outlet property="imageInput" destination="XIy-p3-CWg" id="xq5-0q-vDF"/>
+                        <outlet property="imageTranslated" destination="M1x-jv-S0X" id="Q9t-B1-xSh"/>
+                        <outlet property="showHistoryBtn" destination="bcR-hh-6Uf" id="OwA-pK-Dye"/>
                         <outlet property="translatedText" destination="etk-ac-0ix" id="aTY-v9-cG2"/>
                         <outlet property="translatedTxtView" destination="F4V-wG-uDK" id="d2w-Ve-5Vl"/>
                     </connections>
