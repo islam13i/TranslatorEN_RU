@@ -94,6 +94,7 @@ class TranslatorViewController: UIViewController {
             imageTranslated.image = UIImage(named: "imageTranslated".localizeableString(loc: "ru"))
         }
     }
+    
 }
 
 
