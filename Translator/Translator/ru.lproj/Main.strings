@@ -1,0 +1,18 @@
+
+/* Class = "UITextField"; placeholder = "Enter text"; ObjectID = "D1u-Xu-V45"; */
+"D1u-Xu-V45.placeholder" = "Enter text";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Jdm-Vt-XKm"; */
+"Jdm-Vt-XKm.normalTitle" = "Button";
+
+/* Class = "UIBarButtonItem"; title = "    "; ObjectID = "L07-ne-K0g"; */
+"L07-ne-K0g.title" = "    ";
+
+/* Class = "UINavigationItem"; title = "iTranslator"; ObjectID = "aWb-FT-NaB"; */
+"aWb-FT-NaB.title" = "iTranslator";
+
+/* Class = "UIButton"; normalTitle = "Посмотреть историю"; ObjectID = "bcR-hh-6Uf"; */
+"bcR-hh-6Uf.normalTitle" = "Посмотреть историю";
+
+/* Class = "UINavigationItem"; title = "iTranslator"; ObjectID = "ubo-AK-Enk"; */
+"ubo-AK-Enk.title" = "iTranslator";
