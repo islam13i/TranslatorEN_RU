@@ -88,10 +88,12 @@ class TranslatorViewController: UIViewController {
         if LocalizationSystem.sharedInstance.checkIfEN(){
             imageInput.image = UIImage(named: "imageInput".localizeableString(loc: "en"))
             imageTranslated.image = UIImage(named: "imageTranslated".localizeableString(loc: "en"))
+            ServerManager.instance.lg = "lng".localizeableString(loc: "en")
         }
         else{
             imageInput.image = UIImage(named: "imageInput".localizeableString(loc: "ru"))
             imageTranslated.image = UIImage(named: "imageTranslated".localizeableString(loc: "ru"))
+            ServerManager.instance.lg = "lng".localizeableString(loc: "ru")
         }
     }
     
