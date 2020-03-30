@@ -14,5 +14,4 @@ class TranslatedItem: Object {
     @objc dynamic var engTxt: String = ""
     @objc dynamic var date: Date = Date()
     
-   
 }

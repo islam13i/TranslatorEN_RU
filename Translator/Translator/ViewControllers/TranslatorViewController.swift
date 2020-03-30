@@ -9,10 +9,10 @@
 import UIKit
 import Network
 
-class TranslatorViewController: UIViewController {
+class TranslatorViewController: UIViewController, UITextViewDelegate {
     
-    @IBOutlet weak var enterTextInput: UITextField!
-    @IBOutlet weak var translatedText: UITextField!
+    @IBOutlet weak var enterTextInput: UITextView!
+    @IBOutlet weak var translatedText: UITextView!
     @IBOutlet weak var enterTxtView: UIView!
     @IBOutlet weak var translatedTxtView: UIView!
     @IBOutlet weak var showHistoryBtn: UIButton!
@@ -28,7 +28,11 @@ class TranslatorViewController: UIViewController {
     }
     func configureUI() {
         configureNavBar(navBar: self.navigationController!)
+        enterTextInput.text = "inputPlaceholder".localizeableString(loc: LocalizationSystem.sharedInstance.getLanguage())
+        enterTextInput.textColor = UIColor.gray
         enterTextInput.delegate = self
+        enterTxtView.layer.cornerRadius = 5
+        translatedTxtView.layer.cornerRadius = 5
         showHistoryBtn.titleLabel!.numberOfLines = 0;
         showHistoryBtn.titleLabel!.lineBreakMode = NSLineBreakMode.byWordWrapping ;
         setImagesByLang()
@@ -36,9 +40,25 @@ class TranslatorViewController: UIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
     }
-
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        ServerManager.instance.getTranslate(completion:setTranslateToField(translate:), text: textField.text!)
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.textColor == UIColor.lightGray || textView.text == "inputPlaceholder".localizeableString(loc: "en") || textView.text == "inputPlaceholder".localizeableString(loc: "ru"){
+            textView.text = nil
+            textView.textColor = UIColor.black
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text!.isEmpty {
+            if LocalizationSystem.sharedInstance.checkIfEN(){
+                textView.text = "inputPlaceholder".localizeableString(loc: "en")
+            }else{
+                textView.text = "inputPlaceholder".localizeableString(loc: "ru")
+            }
+            textView.textColor = UIColor.lightGray
+            return
+        }
+        ServerManager.instance.getTranslate(completion:setTranslateToField(translate:), text: textView.text!)
     }
     
     func setTranslateToField(translate: String) {
@@ -60,27 +80,31 @@ class TranslatorViewController: UIViewController {
         DataManager.sharedInstance.addData(object: translateItem)
     }
     
+    @IBAction func speachTranslated(_ sender: Any) {
+        if translatedText.text.isEmpty{
+            return
+        }
+        VoiceController.sharedInstance.speachText(text: translatedText.text)
+    }
     @IBAction func changeLang(_ sender: Any) {
         
         if LocalizationSystem.sharedInstance.checkIfEN() {
             LocalizationSystem.sharedInstance.setLanguage(languageCode: "ru")
-            enterTextInput.placeholder = "inputPlaceholder".localizeableString(loc: "ru")
-            enterTextInput.text = ""
-            translatedText.text = ""
-            showHistoryBtn.setTitle("btnTxt".localizeableString(loc: "ru"), for: .normal)
-            ServerManager.instance.lg = "lng".localizeableString(loc: "ru")
+            setTextByLocalization(lng: "ru")
             setImagesByLang()
         }
         else{
             LocalizationSystem.sharedInstance.setLanguage(languageCode: "en")
-            enterTextInput.placeholder = "inputPlaceholder".localizeableString(loc: "en")
-            enterTextInput.text = ""
-            translatedText.text = ""
-            showHistoryBtn.setTitle("btnTxt".localizeableString(loc: "en"), for: .normal)
-             ServerManager.instance.lg = "lng".localizeableString(loc: "en")
+            setTextByLocalization(lng: "en")
             setImagesByLang()
         }
-        
+    }
+    
+    func setTextByLocalization(lng: String){
+        enterTextInput.text = ""
+        translatedText.text = ""
+        showHistoryBtn.setTitle("btnTxt".localizeableString(loc: lng), for: .normal)
+        ServerManager.instance.lg = "lng".localizeableString(loc: lng)
     }
     
     func setImagesByLang() {

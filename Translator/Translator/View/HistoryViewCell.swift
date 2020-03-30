@@ -8,14 +8,28 @@
 
 import UIKit
 
-class HistoryViewCell: UICollectionViewCell {
+final class HistoryViewCell: UICollectionViewCell {
+    @IBOutlet weak var russianText: UITextView!
+    @IBOutlet weak var englishText: UITextView!
     
-        @IBOutlet weak var russianText: UILabel!
-        @IBOutlet weak var englishText: UILabel!
-        
-        func setLabels(item: TranslatedItem) {
-            russianText.text = item.rusTxt
-            englishText.text = item.engTxt
-        }
+    static let reuseIdentifier = String(describing: HistoryViewCell.self)
+    
+    func setLabels(item: TranslatedItem) {
+        russianText.text = item.rusTxt
+        englishText.text = item.engTxt
+    }
+    @IBAction func speachTranslated(_ sender: UIButton, forEvent event: UIEvent) {
+        VoiceController.sharedInstance.speachText(text: englishText.text)
+    }
+    
+    override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
+           setNeedsLayout()
+           layoutIfNeeded()
+           let size = contentView.systemLayoutSizeFitting(layoutAttributes.size)
+           var frame = layoutAttributes.frame
+           frame.size.height = ceil(size.height)
+           layoutAttributes.frame = frame
+           return layoutAttributes
+       }
 }
 

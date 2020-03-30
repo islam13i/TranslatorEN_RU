@@ -19,14 +19,14 @@ class ServerManager {
     var endpoint: String = "translate?"
     var param: String = "lang="
     var lg: String = "lng".localizeableString(loc: "en")
-
+    
     static let instance = ServerManager()
 }
 
 
 
 extension ServerManager {
-
+    
     func getTranslate( completion: @escaping (String)-> (), text: String) {
         let urlString = getURLString(text: text)
         guard let url = URL(string: urlString) else{ return }
@@ -48,12 +48,10 @@ extension ServerManager {
 }
 
 extension String{
-    var encodeUrl : String
-    {
+    var encodeUrl : String{
         return self.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!
     }
-    var decodeUrl : String
-    {
+    var decodeUrl : String{
         return self.removingPercentEncoding!
     }
 }
