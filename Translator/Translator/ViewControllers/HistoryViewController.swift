@@ -49,7 +49,7 @@ extension HistoryViewController : UICollectionViewDelegateFlowLayout {
         let availableWidth = view.frame.width - paddingSpace
         let widthPerItem = availableWidth / 1
         if let item = translatedItems?.sorted(byKeyPath: "date", ascending: false)[indexPath.row] {
-           
+            
             
             let approximateWidthOfBioTextView = view.frame.width - 12 - 50 - 12 - 2
             let size = CGSize(width: approximateWidthOfBioTextView, height: 1000)

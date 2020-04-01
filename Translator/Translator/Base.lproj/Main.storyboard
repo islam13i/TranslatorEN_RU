@@ -100,7 +100,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zfd-do-1zT">
                                         <rect key="frame" x="77" y="10" width="290" height="70"/>
                                         <subviews>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="fd4-Sm-ZPK">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="fd4-Sm-ZPK">
                                                 <rect key="frame" x="0.0" y="14" width="290" height="36"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -110,7 +110,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ocr-Nq-Me4">
                                                 <rect key="frame" x="262" y="42" width="25" height="25"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="25" id="Ghb-Vv-GDQ"/>
+                                                    <constraint firstAttribute="width" secondItem="ocr-Nq-Me4" secondAttribute="height" multiplier="1:1" id="6hj-dM-dfB"/>
                                                     <constraint firstAttribute="height" constant="25" id="q5d-SG-AMe"/>
                                                 </constraints>
                                                 <state key="normal" title="Button" image="speaker"/>
@@ -123,6 +123,7 @@
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="ocr-Nq-Me4" secondAttribute="trailing" constant="3" id="H0c-eG-mOA"/>
                                             <constraint firstItem="fd4-Sm-ZPK" firstAttribute="leading" secondItem="zfd-do-1zT" secondAttribute="leading" id="Lia-ju-wDj"/>
+                                            <constraint firstItem="ocr-Nq-Me4" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="zfd-do-1zT" secondAttribute="leading" constant="20" symbolic="YES" id="Q7f-rs-S2x"/>
                                             <constraint firstItem="fd4-Sm-ZPK" firstAttribute="top" secondItem="zfd-do-1zT" secondAttribute="top" constant="14" id="WEy-9g-nZV"/>
                                             <constraint firstAttribute="bottom" secondItem="ocr-Nq-Me4" secondAttribute="bottom" constant="3" id="X5X-Mk-fsX"/>
                                             <constraint firstAttribute="bottom" secondItem="fd4-Sm-ZPK" secondAttribute="bottom" constant="20" id="drf-UG-6dB"/>
@@ -211,7 +212,7 @@
                             <collectionViewCell opaque="NO" clipsSubviews="YES" contentMode="center" reuseIdentifier="cell" id="evw-rf-n8P" customClass="HistoryViewCell" customModule="Translator" customModuleProvider="target">
                                 <rect key="frame" x="19" y="0.0" width="337" height="94"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="d4M-pt-GSx" customClass="HistoryViewCell" customModule="Translator" customModuleProvider="target">
+                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="d4M-pt-GSx" customClass="HistoryViewCell" customModule="Translator" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="337" height="94"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
@@ -239,7 +240,7 @@
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bGd-ox-5Rl">
                                             <rect key="frame" x="309" y="66" width="25" height="25"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="25" id="mih-fT-2ln"/>
+                                                <constraint firstAttribute="width" secondItem="bGd-ox-5Rl" secondAttribute="height" multiplier="1:1" id="9k0-bT-pbH"/>
                                                 <constraint firstAttribute="height" constant="25" id="zln-ou-5ZA"/>
                                             </constraints>
                                             <state key="normal" title="Button" image="speaker"/>
@@ -259,6 +260,7 @@
                                         <constraint firstAttribute="trailing" secondItem="bGd-ox-5Rl" secondAttribute="trailing" constant="3" id="cBm-1f-ljg"/>
                                         <constraint firstItem="LOq-82-btb" firstAttribute="top" secondItem="45V-3q-jfv" secondAttribute="bottom" constant="5" id="g34-T8-4nK"/>
                                         <constraint firstItem="45V-3q-jfv" firstAttribute="leading" secondItem="d4M-pt-GSx" secondAttribute="leading" constant="20" id="lNM-Sx-wEW"/>
+                                        <constraint firstItem="bGd-ox-5Rl" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="d4M-pt-GSx" secondAttribute="leading" constant="20" symbolic="YES" id="miZ-HD-u5G"/>
                                         <constraint firstAttribute="bottom" secondItem="LOq-82-btb" secondAttribute="bottom" constant="10" id="r1f-U7-DlQ"/>
                                         <constraint firstAttribute="trailing" secondItem="45V-3q-jfv" secondAttribute="trailing" constant="20" id="ta9-KH-ZkA"/>
                                         <constraint firstAttribute="trailing" secondItem="JYh-1k-DVi" secondAttribute="trailing" constant="25" id="ui8-t8-Hsg"/>
@@ -271,6 +273,7 @@
                                 <connections>
                                     <outlet property="englishText" destination="LOq-82-btb" id="bUZ-7n-CKk"/>
                                     <outlet property="russianText" destination="JYh-1k-DVi" id="wib-o1-hZh"/>
+                                    <outlet property="speachBtn" destination="bGd-ox-5Rl" id="hlU-pD-kuX"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
